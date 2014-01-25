@@ -1,0 +1,2 @@
+An engine for generating character and model animations procedurally, the physics engine for simulating them, and a graphics engine for displaying them.
+

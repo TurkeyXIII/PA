@@ -1,0 +1,44 @@
+PHYSICS ENGINE ASPECT (treat everything as a rigid body for now):
+
+I want to be able to create a body in the world.
+	-The world must exist.
+	-Bodies must be constructible from a definition file (use xml)
+	-the definition file should include vertex parameters and/or materials, or simply point to a .3ds file. Should also define body type? (rigid, animated, etc)
+	-the body must then exist within the world; add it to a list where it is 'owned' by the world object.
+
+I should be able to teleport bodies, and otherwise manipulate their position/orientation information.
+	-Each body must have position information
+	-Each body must have orientation information
+	-Position and orientation information must be manipulable
+	-The points that the body 'contains' must reflect the body's position and orientation
+
+I want to be able to push bodies around in the world.
+	-Each body must have velocity and angular velocity
+	-When the world is updated, each body must move according to it's velocities
+	*-when a force is applied to a body, it's velocity and angular velocity must change appropriately
+
+If two bodies in the world collide, they should bounce off each other.
+
+Objects bouncing off each other should be realistic.
+
+I want to be able to define a 'ground', or some kind of limiting surface beyond which no bodies can exist.
+
+I want to be able to define fields of force which operate on all bodies, such as gravity.
+
+Two bodies in contact should be subject to normal and friction forces.
+
+When a body moves or changes in any way, I need to know about it; it'll call a callback function, or something... some way to keep updated on it's position/orientation information.  This callback should automatically be applied to the related graphics engine mesh if applicable.
+
+
+GRAPHICS ENGINE ASPECT:
+
+I can give it a window handle, and it will prime that window for the drawing of a scene.
+
+An implementation of DrawScene(): A single function which will render the scene in the window provided.
+
+I want to be able to specify some kind of model or geometry, and it will create a graphics mesh for the scene and return me a handle or reference so I can manipulate the position etc of the mesh.
+
+Each drawable mesh object, if visible, should be drawn when DrawScene is called.
+
+There should be an animatable variation: specifying a model file with a frame heirarchy should return an object with movable limbs. The limbs will then be manipulable by accessing that object.
+

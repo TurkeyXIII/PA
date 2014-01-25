@@ -1,0 +1,11 @@
+- sort out header architecture. I think I'll need wrappers for the D3DX structs (done...ish)
+
+- decide on a Mock or TDD framework. (current thought: outside-in TDD with mostly stubs; mocks only when necessary.)
+
+- Find a way inject/use a stub class. Experiment with it.
+
+- Write a unit test for one of the user stories.
+
+- Implement class enough to pass test.  make sure class implementations allow for dependency injection.  outside-in TDD should enforce this.
+
+- Rinse, repeat

@@ -1,0 +1,20 @@
+<body type="rigid">
+	<hitbox>
+		<vertex x="3" y="-3" z="0" />
+		<vertex x="-3" y="-3" z="0" />
+		<vertex x="-3" y="3" z="0" />
+		<vertex x="3" y="3" z="0" />
+		
+		<vertex x="2" y="-2" z="1" />
+		<vertex x="-2" y="-2" z="1" />
+		<vertex x="-2" y="2" z="1" />
+		<vertex x="2" y="2" z="1" />
+		
+		<vertex x="1" y="-1" z="1.5" />
+		<vertex x="-1" y="-1" z="1.5" />
+		<vertex x="-1" y="1" z="1.5" />
+		<vertex x="1" y="1" z="1.5" />
+		
+		<vertex x="0" y="0" z="5" />
+	</hitbox>
+</body>

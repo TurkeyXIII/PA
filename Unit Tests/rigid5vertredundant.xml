@@ -1,0 +1,9 @@
+<body type="rigid">
+	<hitbox>
+		<vertex x="1" y="-1" z="0" />
+		<vertex x="-1" y="-1" z="0" />
+		<vertex x="0" y="1" z="0" />
+		<vertex x="0" y="0" z="3" />
+		<vertex x="0" y="0" z="5" />
+	</hitbox>
+</body>

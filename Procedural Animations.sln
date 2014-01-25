@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PALib", "PALib\PALib.vcxproj", "{8316253F-C6E9-4F48-958C-42CB270D8D94}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Unit Tests", "Unit Tests\Unit Tests.vcxproj", "{1C86248A-4061-4692-BEAB-F382634F151E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8316253F-C6E9-4F48-958C-42CB270D8D94} = {8316253F-C6E9-4F48-958C-42CB270D8D94}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8316253F-C6E9-4F48-958C-42CB270D8D94}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8316253F-C6E9-4F48-958C-42CB270D8D94}.Debug|Win32.Build.0 = Debug|Win32
+		{8316253F-C6E9-4F48-958C-42CB270D8D94}.Release|Win32.ActiveCfg = Release|Win32
+		{8316253F-C6E9-4F48-958C-42CB270D8D94}.Release|Win32.Build.0 = Release|Win32
+		{1C86248A-4061-4692-BEAB-F382634F151E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1C86248A-4061-4692-BEAB-F382634F151E}.Debug|Win32.Build.0 = Debug|Win32
+		{1C86248A-4061-4692-BEAB-F382634F151E}.Release|Win32.ActiveCfg = Release|Win32
+		{1C86248A-4061-4692-BEAB-F382634F151E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
