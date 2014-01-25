@@ -38,10 +38,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\PALib\DXSDK\Include;C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\3rd Party\tinyXML\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\dev\DXSDK\Include;C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\3rd Party\tinyXML\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\PALib\DXSDK\Lib\x86;C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\3rd Party\tinyXML\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\dev\DXSDK\Lib\x86;C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\3rd Party\tinyXML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -56,7 +56,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\PALib\DXSDK\Lib\x86;C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\3rd Party\tinyXML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\dev\DXSDK\Lib\x86;C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\3rd Party\tinyXML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3dx9.lib;tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <ProjectReference />

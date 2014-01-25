@@ -38,9 +38,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
+    <LinkIncremental>false</LinkIncremental>
     <IncludePath>C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\PALib;C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\3rd Party\Catch;C:\dev\DXSDK\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\Debug;C:\dev\DXSDK\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

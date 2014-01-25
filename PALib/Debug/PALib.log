@@ -1,13 +1,27 @@
-﻿Build started 24/01/2014 4:17:21 PM.
-     1>Project "C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\PALib\PALib.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 25/01/2014 2:16:30 PM.
+     1>Project "C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\PALib\PALib.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\PALib.lastbuildstate".
+       InitializeBuildStatus:
          Creating "Debug\PALib.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"Debug\PALib.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Body.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"pch.h" /Fp"Debug\PALib.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt pch.cpp
+         pch.cpp
+         compiling precompiled header
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"Debug\PALib.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Body.cpp common.cpp Graphics.cpp Hitbox.cpp IndustrialPark.cpp Material.cpp Mesh.cpp PAtoDX.cpp PhysicsLogic.cpp RigidBody.cpp
+         RigidBody.cpp
+         PhysicsLogic.cpp
+         PAtoDX.cpp
+         Mesh.cpp
+         Material.cpp
+         IndustrialPark.cpp
+         Hitbox.cpp
+         Graphics.cpp
+         common.cpp
          Body.cpp
+         Generating Code...
        Lib:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\Debug\PALib.lib" d3dx9.lib tinyxml2.lib /LIBPATH:"C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\PALib\DXSDK\Lib\x86" /LIBPATH:"C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\3rd Party\tinyXML\lib" /NOLOGO Debug\Body.obj
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\Debug\PALib.lib" d3dx9.lib tinyxml2.lib /LIBPATH:C:\dev\DXSDK\Lib\x86 /LIBPATH:"C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\3rd Party\tinyXML\lib" /NOLOGO Debug\Body.obj
          Debug\common.obj
          Debug\Graphics.obj
          Debug\Hitbox.obj
@@ -22,8 +36,8 @@
        FinalizeBuildStatus:
          Deleting file "Debug\PALib.unsuccessfulbuild".
          Touching "Debug\PALib.lastbuildstate".
-     1>Done Building Project "C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\PALib\PALib.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\Phillip\Documents\Swordfighting\Procedural Animations\PALib\PALib.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.35
+Time Elapsed 00:00:03.52
