@@ -205,6 +205,7 @@ public:
 	virtual void		AdjustRollVelocity(float radianAngle) = 0;
 	virtual void		AdjustPitchVelocity(float radianAngle) = 0;
 	virtual void		AdjustYawVelocity(float radianAngle) = 0;
+	virtual void		AdjustAxisVelocity(PAVECTOR& axis, float radianAngle) = 0;
 
 	virtual void		StopRotation(void) = 0;
 
@@ -224,6 +225,9 @@ class IPhysicsLogic : public IObject
 public:
 	virtual void		DetectCollisions(void) = 0;
 	virtual void		AddBody(IBody* pBody) = 0;
+
+	virtual void		Update(TimeMS now) = 0;
+	virtual void		Increment(TimeMS difference) = 0;
 };
 
 

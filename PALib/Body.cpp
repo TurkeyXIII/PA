@@ -20,57 +20,50 @@ void	CBody::SetPosition(const PAVECTOR& pos)
 
 void	CBody::AdjustRoll(float radianAngle)
 {
-	D3DXQUATERNION roll;
-	D3DXQuaternionRotationAxis(&roll, &GetForward(), -radianAngle);
-
-	//m_orientation *= roll;
-	D3DXQUATERNION orientationTemp = m_orientation;
-	D3DXQuaternionMultiply(&m_orientation, &roll, &orientationTemp);
-
-
-	D3DXVECTOR3 fwd, up;
-	fwd = GetForward();
-	up = GetUp();
-	debugf("fwd: (%.0f, %.0f, %.0f)\tup: (%.0f, %.0f, %.0f)\n", fwd.x, fwd.y, fwd.z, up.x, up.y, up.z);
+	AdjustAxisAngle(GetForward(), radianAngle);
 }
 
 void	CBody::AdjustPitch(float radianAngle)
 {
-	D3DXQUATERNION pitch;
 	D3DXVECTOR3 right = RotateVector(D3DXVECTOR3(1.0f, 0.0f, 0.0f));
-	debugf("right: (%.0f, %.0f, %.0f)\n", right.x, right.y, right.z);
-	D3DXQuaternionRotationAxis(&pitch, &right, -radianAngle);
-
-	//m_orientation *= pitch;
-	D3DXQUATERNION orientationTemp = m_orientation;
-	D3DXQuaternionMultiply(&m_orientation, &pitch, &orientationTemp);
-
-	D3DXVECTOR3 fwd, up;
-	fwd = GetForward();
-	up = GetUp();
-	debugf("fwd: (%.0f, %.0f, %.0f)\tup: (%.0f, %.0f, %.0f)\n", fwd.x, fwd.y, fwd.z, up.x, up.y, up.z);
+	AdjustAxisAngle(right, radianAngle);
 }
 
 void	CBody::AdjustYaw(float radianAngle)
 {
-	D3DXQUATERNION yaw;
-	D3DXQuaternionRotationAxis(&yaw, &GetUp(), -radianAngle);
+	AdjustAxisAngle(GetUp(), radianAngle);
+}
 
-	//m_orientation *= yaw;
+void	CBody::AdjustAxisAngle(D3DXVECTOR3& axis, float radianAngle)
+{
+	D3DXQUATERNION thisRotation;
+	D3DXQuaternionRotationAxis(&thisRotation, &axis, -radianAngle);
+
 	D3DXQUATERNION orientationTemp = m_orientation;
-	D3DXQuaternionMultiply(&m_orientation, &yaw, &orientationTemp);
+	D3DXQuaternionMultiply(&m_orientation, &thisRotation, &orientationTemp);
 
+	/*
 	D3DXVECTOR3 fwd, up;
 	fwd = GetForward();
 	up = GetUp();
 	debugf("fwd: (%.0f, %.0f, %.0f)\tup: (%.0f, %.0f, %.0f)\n", fwd.x, fwd.y, fwd.z, up.x, up.y, up.z);
+	*/
+}
+
+void	CBody::AdjustAxisAngle(PAVECTOR& axis, float radianAngle)
+{
+	AdjustAxisAngle(DXVector(axis), radianAngle);
 }
 
 D3DXVECTOR3	CBody::GetForward(void) const
 {
 	D3DXVECTOR3 fwd(0.0f, 1.0f, 0.0f);
 
-	return RotateVector(fwd);
+	D3DXVECTOR3 rotatedFwd = RotateVector(fwd);
+
+	debugf("fwd: (%.5f, %.5f, %.5f)\n", rotatedFwd.x, rotatedFwd.y, rotatedFwd.z);
+
+	return rotatedFwd;
 }
 
 D3DXVECTOR3	CBody::GetUp(void) const
@@ -149,30 +142,32 @@ PAVECTOR	CBody::GetPosition(void) const
 
 void		CBody::AdjustRollVelocity(float radianAngle)
 {
-	D3DXQUATERNION roll;
-	D3DXQuaternionRotationAxis(&roll, &GetForward(), -radianAngle);
-
-	D3DXQUATERNION angularVelocityTemp = m_angularVelocity;
-	D3DXQuaternionMultiply(&m_angularVelocity, &roll, &angularVelocityTemp);
+	AdjustAxisVelocity(GetForward(), radianAngle);
 }
 
 void		CBody::AdjustPitchVelocity(float radianAngle)
 {
-	D3DXQUATERNION pitch;
 	D3DXVECTOR3 right = RotateVector(D3DXVECTOR3(1.0f, 0.0f, 0.0f));
-	D3DXQuaternionRotationAxis(&pitch, &right, -radianAngle);
-
-	D3DXQUATERNION angularVelocityTemp = m_angularVelocity;
-	D3DXQuaternionMultiply(&m_angularVelocity, &pitch, &angularVelocityTemp);
+	AdjustAxisVelocity(right, radianAngle);
 }
 
 void		CBody::AdjustYawVelocity(float radianAngle)
 {
-	D3DXQUATERNION yaw;
-	D3DXQuaternionRotationAxis(&yaw, &GetUp(), -radianAngle);
+	AdjustAxisVelocity(GetUp(), radianAngle);
+}
+
+void	CBody::AdjustAxisVelocity(D3DXVECTOR3& axis, float radianAngle)
+{
+	D3DXQUATERNION thisRotation;
+	D3DXQuaternionRotationAxis(&thisRotation, &axis, -radianAngle);
 
 	D3DXQUATERNION angularVelocityTemp = m_angularVelocity;
-	D3DXQuaternionMultiply(&m_angularVelocity, &yaw, &angularVelocityTemp);
+	D3DXQuaternionMultiply(&m_angularVelocity, &thisRotation, &angularVelocityTemp);
+}
+
+void	CBody::AdjustAxisVelocity(PAVECTOR& axis, float radianAngle)
+{
+	AdjustAxisVelocity(DXVector(axis), radianAngle);
 }
 
 void		CBody::StopRotation(void)

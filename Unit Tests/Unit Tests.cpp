@@ -485,4 +485,72 @@ TEST_CASE("Bodies have velocities")
 		CHECK(pBody->GetForwardPAVector() == PAVECTOR(0.38268f, 0.0f, 0.92388f));
 		CHECK(pBody->GetUpPAVector() == PAVECTOR(0.0f, 1.0f, 0.0f));
 	}
+
+	
+	SECTION("off-axis angular velocity")
+	{
+		pBody->AdjustAxisVelocity(PAVECTOR(1.0f, -1.0f, 0.0f), (float)M_PI_4);
+		
+		pBody->GetForwardPAVector();
+		pBody->GetUpPAVector();
+
+		pBody->Update(4000);
+
+		CHECK(pBody->GetForwardPAVector() == PAVECTOR(-1.0, 0.0, 0.0));
+		CHECK(pBody->GetUpPAVector() == PAVECTOR(0.0f, 0.0f, -1.0f));
+
+		pBody->Update(8000);
+
+		CHECK(pBody->GetForwardPAVector() == PAVECTOR(0.0, 1.0, 0.0));
+		CHECK(pBody->GetUpPAVector() == PAVECTOR(0.0f, 0.0f, 1.0f));
+	}
+	
 }
+
+
+TEST_CASE("World updates")
+{
+	CPhysicsLogicFactory god;
+	Ptr<IPhysicsLogic> pWorld = god.Create();
+	Ptr<CBodyFactory> bodyFact = new CBodyFactory();
+
+	Ptr<IBody> pBody1 = bodyFact->Create(&std::string("rigid3dscube.xml"));
+	REQUIRE((bool)pBody1);
+	pWorld->AddBody(pBody1);
+
+	Ptr<IBody> pBody2 = bodyFact->Create(&std::string("rigid3dscube.xml"));
+	REQUIRE((bool)pBody2);
+	pWorld->AddBody(pBody2);
+
+	pBody1->SetVelocity(PAVECTOR(0.0f, 10.0f, 0.0f));
+	pBody2->SetPosition(PAVECTOR(10.0f, 0.0f, 0.0f));
+	pBody2->AdjustAxisVelocity(PAVECTOR(1.0f, -1.0f, 0.0f), (float)M_PI_4);
+
+	CHECK(pBody1->GetPosition() == PAVECTOR(0.0f, 0.0f, 0.0f));
+	CHECK(pBody2->GetForwardPAVector() == PAVECTOR(0.0f, 1.0f, 0.0f));
+	CHECK(pBody2->GetUpPAVector() == PAVECTOR(0.0f, 0.0f, 1.0f));
+	
+	pWorld->Update(2000);
+
+	CHECK(pBody1->GetPosition() == PAVECTOR(0.0f, 20.0f, 0.0f));
+	CHECK(pBody2->GetForwardPAVector() == PAVECTOR(-0.5f, 0.5f, 0.7071f));
+	CHECK(pBody2->GetUpPAVector() == PAVECTOR(0.-0.7071f, -0.7071f, 0.0f));
+	
+	pWorld->Increment(2000);
+
+	CHECK(pBody1->GetPosition() == PAVECTOR(0.0f, 40.0f, 0.0f));
+	CHECK(pBody2->GetForwardPAVector() == PAVECTOR(-1.0f, 0.0f, 0.0f));
+	CHECK(pBody2->GetUpPAVector() == PAVECTOR(0.0f, 0.0f, -1.0f));
+}
+
+/*
+TEST_CASE("Applying a force")
+{
+	Ptr<CBodyFactory> bodyFact = new CBodyFactory();
+
+	Ptr<IBody> pBody1 = bodyFact->Create(&std::string("rigid3dscube.xml"));
+	REQUIRE((bool)pBody1);
+
+	Ptr<IForce> pForce;
+}
+*/

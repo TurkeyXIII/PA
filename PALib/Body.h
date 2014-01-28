@@ -32,6 +32,8 @@ public:
 	virtual void		AdjustRoll(float radianAngle);
 	virtual void		AdjustPitch(float radianAngle);
 	virtual void		AdjustYaw(float radianAngle);
+	virtual void		AdjustAxisAngle(PAVECTOR& axis, float radianAngle);
+	virtual void		AdjustAxisAngle(D3DXVECTOR3& axis, float radianAngle);
 
 	virtual void		SetVelocity(const PAVECTOR& v);
 	virtual void		AdjustVelocity(const PAVECTOR& v);
@@ -42,6 +44,8 @@ public:
 	virtual void		AdjustRollVelocity(float radianAngle);
 	virtual void		AdjustPitchVelocity(float radianAngle);
 	virtual void		AdjustYawVelocity(float radianAngle);
+	virtual void		AdjustAxisVelocity(PAVECTOR& axis, float radianAngle);
+	virtual void		AdjustAxisVelocity(D3DXVECTOR3& axis, float radianAngle);
 
 	virtual void		StopRotation(void);
 

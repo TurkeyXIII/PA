@@ -10,6 +10,11 @@ public:
 
 	void	AddBody(IBody* pBody);
 
+	void	Update(TimeMS now);
+	void	Increment(TimeMS difference);
+
 private:
-	std::list<Ptr<IBody>> m_lpBody;
+	std::list<Ptr<IBody>>	m_lpBody;
+
+	TimeMS					m_lastUpdate;
 };
